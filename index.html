@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AR Markerless Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar-nft.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="map" class="mini"></div>
+<div class="buttons">
+  <button onclick="resetDestination()">🔄 إعادة التحديد</button>
+  <button onclick="toggleStyle()">🌓 تغيير الستايل</button>
+</div>
+
+<a-scene
+  vr-mode-ui="enabled: false"
+  embedded
+  arjs="sourceType: webcam; debugUIEnabled: false;">
+  <a-entity id="path-line"></a-entity>
+  <a-camera position="0 0 0" look-controls-enabled="true" wasd-controls-enabled="false"></a-camera>
+</a-scene>
+
+<script src="script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(() => {
+        alert("✅ الكاميرا تعمل بدون ماركر");
+      })
+      .catch(() => {
+        alert("❌ لم يتم السماح للكاميرا - تأكد من الإعدادات");
+      });
+  });
+</script>
+</body>
+</html>
