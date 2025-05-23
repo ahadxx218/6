@@ -1,0 +1,35 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#map {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 90vw;
+  height: 60vh;
+  z-index: 2;
+  border-radius: 12px;
+  opacity: 0.85;
+  transition: all 0.5s ease;
+}
+#map.mini {
+  width: 200px;
+  height: 150px;
+}
+canvas { z-index: 1; }
+.buttons {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 999;
+}
+button {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
